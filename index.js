@@ -24,42 +24,49 @@ document.getElementById("message-form").addEventListener("submit", sendMessage);
 
 // Send message to the database
 function sendMessage(e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  // Get values to be submitted
-  const timestamp = Date.now();
-  const messageInput = document.getElementById("message-input");
-  const message = messageInput.value;
+    // get values to be submitted
+    const timestamp = Date.now();
+    const messageInput = document.getElementById("message-input");
+    const message = messageInput.value;
 
-  // Clear the input box
-  messageInput.value = "";
+    // clear the input box
+    messageInput.value = "";
 
-  // Auto-scroll to bottom
-  document
-    .getElementById("messages")
-    .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+    // create db collection and send in the data
+    db.ref("messages/" + timestamp).set({
+        username,
+        message,
+    });
 
-  // Create a database collection and send in the data
-  db.ref("messages/" + timestamp).set({
-    username,
-    message,
-  });
+    // display the message immediately
+    displayMessage(username, message);
+
+    // auto scroll to bottom
+    scrollToBottom();
 }
 
-// Display the messages
-// Reference the collection created earlier
-const fetchChat = db.ref("messages/");
+// function to display the message
+function displayMessage(username, message) {
+    const messagesList = document.getElementById("messages");
+    const messageElement = document.createElement("li");
+    messageElement.classList.add(username === username ? "sent" : "receive");
+    messageElement.innerHTML = `<span>${username}: </span>${message}`;
+    messagesList.appendChild(messageElement);
+}
 
-// Check for new messages using the onChildAdded event listener
+// function to scroll to the bottom of the chat
+function scrollToBottom() {
+    const messagesList = document.getElementById("messages");
+    messagesList.scrollTop = messagesList.scrollHeight;
+}
+
+// ...
+
+// Modify the onChildAdded event listener
 fetchChat.on("child_added", function (snapshot) {
-  const messages = snapshot.val();
-  const messagesList = document.getElementById("messages");
-  const messageElement = document.createElement('li');
-  messageElement.classList.add(username === messages.username ? 'sent' : 'receive');
-  messageElement.innerHTML = `<span>${messages.username}: </span>${messages.message}`;
-  messagesList.appendChild(messageElement);
-
-  // Auto-scroll to bottom
-  messagesList
-    .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+    const messages = snapshot.val();
+    displayMessage(messages.username, messages.message);
+    scrollToBottom();
 });
