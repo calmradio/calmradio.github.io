@@ -23,7 +23,7 @@ li {
 }
 
 li span {
-    font-style: italic;
+    font-style: regular;
     font-weight: bolder;
     color: #00ff08;
 }
