@@ -60,7 +60,7 @@ function displayMessage(username, message) {
 // Function to scroll to the bottom of the chat
 function scrollToBottom() {
   const messagesList = document.getElementById("messages");
-  messagesList.scrollTop = messagesList.scrollHeight;
+  messagesList.scrollTop = messagesList.scrollHeight - messagesList.clientHeight;
 }
 
 // Display the messages
