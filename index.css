@@ -34,6 +34,7 @@ li span {
 }
 
 #message-form {
+    font-family: Arial;
     text-align: center;
     position: fixed;
     left: 0;
