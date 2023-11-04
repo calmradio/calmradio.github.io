@@ -12,50 +12,54 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// initialize database
+// Initialize the database
 const db = firebase.database();
 
-// get user's data
+// Get user's data
 const username = prompt("Enter Username");
 
-// submit form
-// listen for submit event on the form and call the postChat function
+// Submit form
+// Listen for the submit event on the form and call the sendMessage function
 document.getElementById("message-form").addEventListener("submit", sendMessage);
 
-// send message to db
+// Send message to the database
 function sendMessage(e) {
   e.preventDefault();
 
-  // get values to be submitted
+  // Get values to be submitted
   const timestamp = Date.now();
   const messageInput = document.getElementById("message-input");
   const message = messageInput.value;
 
-  // clear the input box
+  // Clear the input box
   messageInput.value = "";
 
-  //auto scroll to bottom
+  // Auto-scroll to bottom
   document
     .getElementById("messages")
     .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 
-  // create db collection and send in the data
+  // Create a database collection and send in the data
   db.ref("messages/" + timestamp).set({
     username,
     message,
   });
 }
 
-// display the messages
-// reference the collection created earlier
+// Display the messages
+// Reference the collection created earlier
 const fetchChat = db.ref("messages/");
 
-// check for new messages using the onChildAdded event listener
+// Check for new messages using the onChildAdded event listener
 fetchChat.on("child_added", function (snapshot) {
   const messages = snapshot.val();
-  const message = `<li class=${
-    username === messages.username ? "sent" : "receive"
-  }><span>${messages.username}: </span>${messages.message}</li>`;
-  // append the message on the page
-  document.getElementById("messages").innerHTML += message;
+  const messagesList = document.getElementById("messages");
+  const messageElement = document.createElement('li');
+  messageElement.classList.add(username === messages.username ? 'sent' : 'receive');
+  messageElement.innerHTML = `<span>${messages.username}: </span>${messages.message}`;
+  messagesList.appendChild(messageElement);
+
+  // Auto-scroll to bottom
+  messagesList
+    .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 });
