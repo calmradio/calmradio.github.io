@@ -1,3 +1,4 @@
+
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCyTeJ8Jrynxer1qYJ16BVwGcXkhq5ZEVs",
@@ -34,6 +35,11 @@ function sendMessage(e) {
   // clear the input box
   messageInput.value = "";
 
+  //auto scroll to bottom
+  document
+    .getElementById("messages")
+    .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+
   // create db collection and send in the data
   db.ref("messages/" + timestamp).set({
     username,
@@ -52,9 +58,5 @@ fetchChat.on("child_added", function (snapshot) {
     username === messages.username ? "sent" : "receive"
   }><span>${messages.username}: </span>${messages.message}</li>`;
   // append the message on the page
-  const messagesContainer = document.getElementById("messages");
-  messagesContainer.innerHTML += message;
-
-  // auto scroll to bottom
-  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  document.getElementById("messages").innerHTML += message;
 });
