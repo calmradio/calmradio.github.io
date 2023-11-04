@@ -34,11 +34,6 @@ function sendMessage(e) {
   // clear the input box
   messageInput.value = "";
 
-  //auto scroll to bottom
-  document
-    .getElementById("messages")
-    .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
-
   // create db collection and send in the data
   db.ref("messages/" + timestamp).set({
     username,
@@ -57,5 +52,9 @@ fetchChat.on("child_added", function (snapshot) {
     username === messages.username ? "sent" : "receive"
   }><span>${messages.username}: </span>${messages.message}</li>`;
   // append the message on the page
-  document.getElementById("messages").innerHTML += message;
+  const messagesContainer = document.getElementById("messages");
+  messagesContainer.innerHTML += message;
+
+  // auto scroll to bottom
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
 });
