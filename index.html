@@ -1,29 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Calm Radio Live</title>
-    <link rel="stylesheet" href="./index.css">
-  </head>
-  <body>
-    <header>
-      <h2>Calm Radio</h2>
-    </header>
-
-    <a href="https://soundcloud.com/ca1mradio?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">Archive</a>
-    <a href="https://www.instagram.com/calm_____5/">Instagram</a>
-
-  <br>
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centered Shoutcast Radio Player</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calm Radio Live</title>
+    <link rel="stylesheet" href="./index.css">
     <style>
         body {
             text-align: center;
         }
+
         .center-container {
             display: inline-block;
             text-align: left;
@@ -31,38 +17,42 @@
     </style>
 </head>
 <body>
-  <br>
-  <br>
-    <div class="center-container">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Shoutcast Radio Player</title>
+    <header>
+        <h2>Calm Radio</h2>
+    </header>
 
+    <nav>
+        <a href="https://soundcloud.com/ca1mradio?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">Archive</a>
+        <a href="https://www.instagram.com/calm_____5/">Instagram</a>
+    </nav>
+
+    <br>
+    <br>
+
+    <div class="center-container">
         <audio controls="">
             <source src="http://streaming.shoutcast.com/calm-radio" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
     </div>
-</body>
 
+    <br>
+    <br>
 
-
-    
-    
     <div id="chat">
-      <!-- messages will display here -->
-      <ul id="messages"></ul>
+        <!-- messages will display here -->
+        <ul id="messages"></ul>
 
-      <!-- form to send message -->
-      <form id="message-form">
-        <input id="message-input" type="text" />
-        <button id="message-btn" type="submit">Send</button>
-      </form>
+        <!-- form to send message -->
+        <form id="message-form">
+            <input id="message-input" type="text" />
+            <button id="message-btn" type="submit">Send</button>
+        </form>
     </div>
 
     <!-- scripts -->
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
     <script src="index.js"></script>
-  </body>
+</body>
 </html>
