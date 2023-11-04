@@ -9,6 +9,7 @@ const firebaseConfig = {
   appId: "1:444493245960:web:79eb5be40b1e6d5cd0ebbd",
   measurementId: "G-3E2KRL3VBC"
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
@@ -24,49 +25,51 @@ document.getElementById("message-form").addEventListener("submit", sendMessage);
 
 // Send message to the database
 function sendMessage(e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    // get values to be submitted
-    const timestamp = Date.now();
-    const messageInput = document.getElementById("message-input");
-    const message = messageInput.value;
+  // Get values to be submitted
+  const timestamp = Date.now();
+  const messageInput = document.getElementById("message-input");
+  const message = messageInput.value;
 
-    // clear the input box
-    messageInput.value = "";
+  // Clear the input box
+  messageInput.value = "";
 
-    // create db collection and send in the data
-    db.ref("messages/" + timestamp).set({
-        username,
-        message,
-    });
+  // Create a database collection and send in the data
+  db.ref("messages/" + timestamp).set({
+    username,
+    message,
+  });
 
-    // display the message immediately
-    displayMessage(username, message);
+  // Display the message immediately
+  displayMessage(username, message);
 
-    // auto scroll to bottom
-    scrollToBottom();
+  // Auto-scroll to bottom
+  scrollToBottom();
 }
 
-// function to display the message
+// Function to display the message
 function displayMessage(username, message) {
-    const messagesList = document.getElementById("messages");
-    const messageElement = document.createElement("li");
-    messageElement.classList.add(username === username ? "sent" : "receive");
-    messageElement.innerHTML = `<span>${username}: </span>${message}`;
-    messagesList.appendChild(messageElement);
+  const messagesList = document.getElementById("messages");
+  const messageElement = document.createElement('li');
+  messageElement.classList.add(username === username ? 'sent' : 'receive');
+  messageElement.innerHTML = `<span>${username}: </span>${message}`;
+  messagesList.appendChild(messageElement);
 }
 
-// function to scroll to the bottom of the chat
+// Function to scroll to the bottom of the chat
 function scrollToBottom() {
-    const messagesList = document.getElementById("messages");
-    messagesList.scrollTop = messagesList.scrollHeight;
+  const messagesList = document.getElementById("messages");
+  messagesList.scrollTop = messagesList.scrollHeight;
 }
 
-// ...
+// Display the messages
+// Reference the collection created earlier
+const fetchChat = db.ref("messages/");
 
-// Modify the onChildAdded event listener
+// Check for new messages using the onChildAdded event listener
 fetchChat.on("child_added", function (snapshot) {
-    const messages = snapshot.val();
-    displayMessage(messages.username, messages.message);
-    scrollToBottom();
+  const messages = snapshot.val();
+  displayMessage(messages.username, messages.message);
+  scrollToBottom();
 });
