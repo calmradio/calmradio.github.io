@@ -11,7 +11,7 @@
             font-family: 'Helvetica', sans-serif;
         }
 
-        header, nav, #chat, .center-container {
+        header, nav, .center-container {
             font-family: 'Helvetica', sans-serif;
         }
 
@@ -20,7 +20,7 @@
             text-align: left;
         }
 
-        #chat {
+        #chat-container {
             max-height: 200px;
             overflow-y: auto;
             border: 1px solid #ccc;
@@ -31,7 +31,10 @@
             list-style-type: none;
             margin: 0;
             padding: 0;
-            overflow-y: auto;
+        }
+
+        #message-form {
+            margin-top: 10px; /* Add some space between the chat and the form */
         }
     </style>
 </head>
@@ -73,16 +76,16 @@
     <br>
     <br>
 
-    <div id="chat">
+    <div id="chat-container">
         <!-- messages will display here -->
         <ul id="messages"></ul>
-
-        <!-- form to send message -->
-        <form id="message-form">
-            <input id="message-input" type="text" />
-            <button id="message-btn" type="submit">Send</button>
-        </form>
     </div>
+
+    <!-- form to send message -->
+    <form id="message-form">
+        <input id="message-input" type="text" />
+        <button id="message-btn" type="submit">Send</button>
+    </form>
 
     <!-- scripts -->
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
