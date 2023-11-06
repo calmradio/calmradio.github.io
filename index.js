@@ -16,6 +16,27 @@ firebase.initializeApp(firebaseConfig);
 // initialize database
 const db = firebase.database();
 
+
+
+const userCountRef = database.ref('userCount');
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Function to update the user count
+    function updateUserCount() {
+        userCountRef.once('value').then(snapshot => {
+            const userCount = snapshot.val();
+            document.getElementById('userCount').innerText = userCount;
+        });
+    }
+
+    // Update user count on page load
+    updateUserCount();
+
+    // Update user count whenever it changes in the database
+    userCountRef.on('value', updateUserCount);
+
+  
+
 // get user's data
 const username = prompt("Please Tell Us Your Name");
 
