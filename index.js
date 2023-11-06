@@ -16,8 +16,6 @@ firebase.initializeApp(firebaseConfig);
 // initialize database
 const db = firebase.database();
 
-const userCountRef = database.ref('userCount');
-
 // get user's data
 const username = prompt("Please Tell Us Your Name");
 
