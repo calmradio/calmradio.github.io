@@ -1,4 +1,3 @@
-
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCyTeJ8Jrynxer1qYJ16BVwGcXkhq5ZEVs",
@@ -10,53 +9,77 @@ const firebaseConfig = {
   appId: "1:444493245960:web:79eb5be40b1e6d5cd0ebbd",
   measurementId: "G-3E2KRL3VBC"
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// initialize database
+// Initialize database
 const db = firebase.database();
 
-// get user's data
+// Get user's data
 const username = prompt("Please Tell Us Your Name");
 
-// submit form
-// listen for submit event on the form and call the postChat function
+// Submit form
+// Listen for submit event on the form and call the sendMessage function
 document.getElementById("message-form").addEventListener("submit", sendMessage);
 
-// send message to db
+// Send message to db
 function sendMessage(e) {
   e.preventDefault();
 
-  // get values to be submitted
+  // Get values to be submitted
   const timestamp = Date.now();
   const messageInput = document.getElementById("message-input");
   const message = messageInput.value;
 
-  // clear the input box
+  // Clear the input box
   messageInput.value = "";
 
-  //auto scroll to bottom
+  // Auto-scroll to bottom
   document
     .getElementById("messages")
     .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 
-  // create db collection and send in the data
+  // Create db collection and send in the data
   db.ref("messages/" + timestamp).set({
     username,
     message,
   });
 }
 
-// display the messages
-// reference the collection created earlier
+// Display the messages
+// Reference the collection created earlier
 const fetchChat = db.ref("messages/");
 
-// check for new messages using the onChildAdded event listener
+// Check for new messages using the onChildAdded event listener
 fetchChat.on("child_added", function (snapshot) {
   const messages = snapshot.val();
   const message = `<li class=${
     username === messages.username ? "sent" : "receive"
   }><span>${messages.username}: </span>${messages.message}</li>`;
-  // append the message on the page
+  // Append the message on the page
   document.getElementById("messages").innerHTML += message;
+});
+
+// Get a reference to the 'userCount' node in the database
+const userCountRef = db.ref('userCount');
+
+// Increment the user count when a user visits the website
+userCountRef.transaction((currentCount) => {
+  // If the currentCount is null, it means no data exists yet, so set it to 1
+  if (currentCount === null) {
+    return 1;
+  } else {
+    // Increment the current count by 1
+    return currentCount + 1;
+  }
+});
+
+// Display the live user count
+const userCountElement = document.getElementById('userCount');
+
+// Listen for changes in the user count
+userCountRef.on('value', (snapshot) => {
+  const userCount = snapshot.val();
+  userCountElement.innerText = userCount;
 });
