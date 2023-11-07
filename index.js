@@ -1,4 +1,3 @@
-
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCyTeJ8Jrynxer1qYJ16BVwGcXkhq5ZEVs",
@@ -56,7 +55,17 @@ fetchChat.on("child_added", function (snapshot) {
   const messages = snapshot.val();
   const message = `<li class=${
     username === messages.username ? "sent" : "receive"
-  }><span>${messages.username}: </span>${messages.message}</li>`;
+  } data-key="${snapshot.key}"><span>${messages.username}: </span>${messages.message}</li>`;
   // append the message on the page
   document.getElementById("messages").innerHTML += message;
+});
+
+// check for deleted messages using the onChildRemoved event listener
+fetchChat.on("child_removed", function (snapshot) {
+  const deletedMessageKey = snapshot.key;
+  // remove the corresponding message from the page
+  const messageElement = document.querySelector(`[data-key="${deletedMessageKey}"]`);
+  if (messageElement) {
+    messageElement.remove();
+  }
 });
