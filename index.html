@@ -11,80 +11,47 @@
             font-family: 'Helvetica', sans-serif;
         }
 
-        header, nav, #chat, .center-container {
-            font-family: 'Helvetica', sans-serif;
+        #chat-container {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px auto; /* Center the chat container */
         }
 
-        .center-container {
-            display: inline-block;
-            text-align: left;
+        #messages li {
+            list-style-type: none;
+            margin: 5px;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        .sent {
+            background-color: #e0f7fa;
+        }
+
+        .receive {
+            background-color: #f5f5f5;
         }
     </style>
 </head>
 <body>
-    <header>
-<p><img alt="" src="https://d2w9rnfcy7mm78.cloudfront.net/24531494/original_1accebd668437d25b30db609ace48981.png?1699132774?bc=0" style="height:203px; width:175px" /></p>    </header>
+    <!-- Your existing HTML content -->
 
-	
-<p><a href="https://soundcloud.com/ca1mradio" target="_blank"><u><strong>Archive</strong></u></a><strong>&nbsp; &nbsp;<a href="https://www.instagram.com/calm_____5/" target="_blank"><u>Instagram</u></a></strong></p>
+    <div id="chat-container">
+        <!-- messages will display here -->
+        <ul id="messages"></ul>
 
-
-	<br>
-	
-	<div id="donate-button-container">
-<div id="donate-button"></div>
-<script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
-<script>
-PayPal.Donation.Button({
-env:'production',
-hosted_button_id:'Q4AZ7XHKWYERW',
-image: {
-src:'https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif',
-alt:'Donate with PayPal button',
-title:'PayPal - The safer, easier way to pay online!',
-}
-}).render('#donate-button');
-</script>
-</div>
-
-
-    
-    <br>
-	
-<p style="text-align:center"><span style="background-color:#ffffff">🎸</span><strong><span style="color:#e74c3c"><span style="background-color:#ffffff">NEXT SHOW</span></span><span style="background-color:#ffffff"> </span></strong><span style="background-color:#ffffff">🎵</span></p>
-<table align="center" border="1" cellpadding="1" cellspacing="1" style="width:350px">
-	<tbody>
-		<tr>
-			<td style="text-align:center">Music With Fritz</td>
-			<td style="text-align:center">November 11, 2023 @ 10AM PST</td>
-		</tr>
-	</tbody>
-</table>
-    
-    <br>
-
-    <div class="center-container">
-        <audio controls="">
-            <source src="http://streaming.shoutcast.com/calm-radio" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-    </div>
-
-	
-    <div id="chat">
-      <!-- messages will display here -->
-      <ul id="messages"></ul>
-
-      <!-- form to send message -->
-      <form id="message-form">
-        <input id="message-input" type="text" />
-        <button id="message-btn" type="submit">Send</button>
-      </form>
+        <!-- form to send message -->
+        <form id="message-form">
+            <input id="message-input" type="text" />
+            <button id="message-btn" type="submit">Send</button>
+        </form>
     </div>
 
     <!-- scripts -->
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
     <script src="index.js"></script>
-  </body>
+</body>
 </html>
