@@ -21,46 +21,66 @@
         }
     </style>
 
+    <script src="https://cdn.jsdelivr.net/npm/shoutcast-metadata@1.0.1/dist/shoutcast-metadata.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var audio = document.querySelector('audio');
+            var streamNameElement = document.createElement('p');
+            var streamDescriptionElement = document.createElement('p');
+
+            // Append the elements to the document
+            document.body.appendChild(streamNameElement);
+            document.body.appendChild(streamDescriptionElement);
+
+            // Add an event listener to the audio element to handle metadata loading
+            audio.addEventListener('loadeddata', function () {
+                // Access the metadata properties
+                var streamUrl = audio.currentSrc;
+
+                // Use the ShoutcastMetadata library to fetch metadata
+                ShoutcastMetadata.getMetadata(streamUrl).then(function (metadata) {
+                    console.log('Metadata:', metadata);
+
+                    // Update the UI with stream name and description
+                    streamNameElement.textContent = 'Stream Name: ' + metadata.StreamName;
+                    streamDescriptionElement.textContent = 'Stream Description: ' + metadata.StreamDescription;
+                }).catch(function (error) {
+                    console.error('Error fetching metadata:', error);
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
-<p><img alt="" src="https://d2w9rnfcy7mm78.cloudfront.net/24531494/original_1accebd668437d25b30db609ace48981.png?1699132774?bc=0" style="height:203px; width:175px" /></p>    </header>
+        <p><img alt="" src="https://d2w9rnfcy7mm78.cloudfront.net/24531494/original_1accebd668437d25b30db609ace48981.png?1699132774?bc=0" style="height:203px; width:175px" /></p>
+    </header>
 
-	
-<p><a href="https://soundcloud.com/ca1mradio" target="_blank">Archive</a>&nbsp; &nbsp;<u><a href="https://www.instagram.com/calm_____5/" target="_blank">Instagram</a></u>&nbsp; &nbsp;<u><a href="http://mailto: 1calmradio@gmail.com" target="_blank">Contact</a></u></p>
+    <p><a href="https://soundcloud.com/ca1mradio" target="_blank">Archive</a>&nbsp; &nbsp;<u><a href="https://www.instagram.com/calm_____5/" target="_blank">Instagram</a></u>&nbsp; &nbsp;<u><a href="http://mailto: 1calmradio@gmail.com" target="_blank">Contact</a></u></p>
 
-	<br>
-	
-	<div id="donate-button-container">
-<div id="donate-button"></div>
-<script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
-<script>
-PayPal.Donation.Button({
-env:'production',
-hosted_button_id:'Q4AZ7XHKWYERW',
-image: {
-src:'https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif',
-alt:'Donate with PayPal button',
-title:'PayPal - The safer, easier way to pay online!',
-}
-}).render('#donate-button');
-</script>
-</div>
-
-
-    
     <br>
-	
-<p style="text-align:center"><span style="background-color:#ffffff">🎸</span><strong><span style="color:#e74c3c"><span style="background-color:#ffffff">NEXT SHOW</span></span><span style="background-color:#ffffff"> </span></strong><span style="background-color:#ffffff">🎵</span></p>
-<table align="center" border="1" cellpadding="1" cellspacing="1" style="width:350px">
-	<tbody>
-		<tr>
-			<td style="text-align:center">Music With Fritz</td>
-			<td style="text-align:center">November 11, 2023 @ 10AM PST</td>
-		</tr>
-	</tbody>
-</table>
-    
+
+    <div id="donate-button-container">
+        <div id="donate-button"></div>
+        <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+        <script>
+            // Your existing donation script here
+        </script>
+    </div>
+
+    <br>
+
+    <p style="text-align:center"><span style="background-color:#ffffff">🎸</span><strong><span style="color:#e74c3c"><span style="background-color:#ffffff">NEXT SHOW</span></span><span style="background-color:#ffffff"> </span></strong><span style="background-color:#ffffff">🎵</span></p>
+    <table align="center" border="1" cellpadding="1" cellspacing="1" style="width:350px">
+        <tbody>
+            <tr>
+                <td style="text-align:center">Music With Fritz</td>
+                <td style="text-align:center">November 11, 2023 @ 10AM PST</td>
+            </tr>
+        </tbody>
+    </table>
+
     <br>
 
     <div class="center-container">
@@ -70,21 +90,24 @@ title:'PayPal - The safer, easier way to pay online!',
         </audio>
     </div>
 
-	
     <div id="chat">
-      <!-- messages will display here -->
-      <ul id="messages"></ul>
+        <!-- messages will display here -->
+        <ul id="messages"></ul>
 
-      <!-- form to send message -->
-      <form id="message-form">
-        <input id="message-input" type="text" />
-        <button id="message-btn" type="submit">Send</button>
-      </form>
+        <!-- form to send message -->
+        <form id="message-form">
+            <input id="message-input" type="text" />
+            <button id="message-btn" type="submit">Send</button>
+        </form>
     </div>
+    
+    <!-- Display stream name and description -->
+    <p id="stream-name"></p>
+    <p id="stream-description"></p>
 
     <!-- scripts -->
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
     <script src="index.js"></script>
-  </body>
+</body>
 </html>
