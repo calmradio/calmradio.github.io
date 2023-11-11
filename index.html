@@ -20,18 +20,6 @@
             text-align: left;
         }
     </style>
-	
-document.addEventListener('DOMContentLoaded', function () {
-        var audio = document.querySelector('audio');
-
-        // Add an event listener to the audio element to handle metadata loading
-        audio.addEventListener('loadedmetadata', function () {
-            // Access the metadata properties
-            console.log('Duration: ' + audio.duration + ' seconds');
-            console.log('Current source: ' + audio.currentSrc);
-        });
-    });
-
 
 </head>
 <body>
