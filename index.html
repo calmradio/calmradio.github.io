@@ -62,12 +62,31 @@ title:'PayPal - The safer, easier way to pay online!',
     
     <br>
 
-    <div class="center-container">
-        <audio controls="">
+   <div class="center-container">
+        <audio id="myAudio" controls="">
             <source src="http://streaming.shoutcast.com/calm-radio" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
+
+        <button id="playPauseBtn">Play/Pause</button>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var audio = document.getElementById('myAudio');
+            var playPauseBtn = document.getElementById('playPauseBtn');
+
+            playPauseBtn.addEventListener('click', function () {
+                if (audio.paused) {
+                    audio.play();
+                    playPauseBtn.textContent = 'Pause';
+                } else {
+                    audio.pause();
+                    playPauseBtn.textContent = 'Play';
+                }
+            });
+        });
+    </script>
 
 	
     <div id="chat">
