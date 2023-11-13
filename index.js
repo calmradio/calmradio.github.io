@@ -20,10 +20,7 @@ const username = prompt("Please Tell Us Your Name");
 
 // submit form
 // listen for submit event on the form and call the postChat function
-document.getElementById("message-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    sendMessage(e);
-});
+document.getElementById("message-form").addEventListener("submit", sendMessage);
 
 // send message to db
 function sendMessage(e) {
