@@ -34,8 +34,9 @@ li span {
     margin: auto;
     max-height: 300px;
     overflow-y: auto;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     padding: 10px;
+  margin-bottom: 10%;
 }
 
 #message-form {
