@@ -8,18 +8,19 @@ header {
     text-align: center;
 }
 
-#messages{
-    padding-bottom: 30%;
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 li {
-    list-style-type: none;
-    margin-bottom: 10px;
     background-color: #1900ff;
     padding: 5px;
     border-radius: 10px;
     color: white;
     width: 50%;
+    word-wrap: break-word;
 }
 
 li span {
@@ -31,6 +32,10 @@ li span {
 #chat {
     width: 80%;
     margin: auto;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
 }
 
 #message-form {
