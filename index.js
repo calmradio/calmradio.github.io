@@ -1,4 +1,4 @@
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Your existing Firebase config here
 const firebaseConfig = {
   apiKey: "AIzaSyCyTeJ8Jrynxer1qYJ16BVwGcXkhq5ZEVs",
   authDomain: "calm-radio-bfa8b.firebaseapp.com",
@@ -12,60 +12,49 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// initialize database
+// Initialize the database
 const db = firebase.database();
 
-// get user's data
+// Get user's data
 const username = prompt("Please Tell Us Your Name");
 
-// submit form
-// listen for submit event on the form and call the postChat function
+// Submit form
 document.getElementById("message-form").addEventListener("submit", sendMessage);
 
-// send message to db
+// Send message to db
 function sendMessage(e) {
   e.preventDefault();
 
-  // get values to be submitted
   const timestamp = Date.now();
   const messageInput = document.getElementById("message-input");
   const message = messageInput.value;
 
-  // clear the input box
   messageInput.value = "";
 
-  //auto scroll to bottom
-  document
-    .getElementById("messages")
-    .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+  document.getElementById("messages").scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 
-  // create db collection and send in the data
   db.ref("messages/" + timestamp).set({
     username,
     message,
   });
 }
 
-// display the messages
-// reference the collection created earlier
+// Display the messages
 const fetchChat = db.ref("messages/");
 
-// check for new messages using the onChildAdded event listener
 fetchChat.on("child_added", function (snapshot) {
   const messages = snapshot.val();
-  const message = `<li class=${
-    username === messages.username ? "sent" : "receive"
-  } data-key="${snapshot.key}"><span>${messages.username}: </span>${messages.message}</li>`;
-  // append the message on the page
+  const message = `<li class=${username === messages.username ? "sent" : "receive"} data-key="${snapshot.key}"><span>${messages.username}: </span>${messages.message}</li>`;
   document.getElementById("messages").innerHTML += message;
 });
 
-// check for deleted messages using the onChildRemoved event listener
 fetchChat.on("child_removed", function (snapshot) {
   const deletedMessageKey = snapshot.key;
-  // remove the corresponding message from the page
   const messageElement = document.querySelector(`[data-key="${deletedMessageKey}"]`);
   if (messageElement) {
     messageElement.remove();
   }
 });
+
+// Your existing code continues here
+// ... (any additional code you have)
