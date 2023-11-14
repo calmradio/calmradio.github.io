@@ -9,9 +9,7 @@ header {
 }
 
 #messages{
-    height: 300px;
     padding-bottom: 30%;
-    overflow: scroll;
 }
 
 li {
