@@ -10,6 +10,7 @@ header {
 
 #messages{
     padding-bottom: 30%;
+    overflow: auto;
 }
 
 li {
@@ -20,7 +21,6 @@ li {
     border-radius: 10px;
     color: white;
     width: 50%;
-    display: inline;
 }
 
 li span {
