@@ -14,6 +14,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
 const MAX_MESSAGES_DISPLAYED = 25;
+const SIX_HOURS_IN_MS = 6 * 60 * 60 * 1000;
 
 const username = prompt("Please Tell Us Your Name");
 
@@ -60,6 +61,15 @@ fetchChat.on("child_added", function (snapshot) {
         db.ref("messages/" + oldestMessageKey).remove();
       }
     }
+  }
+
+  // Check if the last message is older than 6 hours, and clear the chat if necessary
+  const lastMessageTimestamp = messageElements.length > 0 ? parseInt(messageElements[messageElements.length - 1].getAttribute("data-key")) : 0;
+  const currentTime = Date.now();
+
+  if (currentTime - lastMessageTimestamp > SIX_HOURS_IN_MS) {
+    messagesContainer.innerHTML = "";
+    db.ref("messages/").remove();
   }
 
   messagesContainer.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
