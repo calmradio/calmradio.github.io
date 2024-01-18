@@ -11,12 +11,12 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-// const db = firebase.database();
+const db = firebase.database();
 
 const MAX_MESSAGES_DISPLAYED = 25;
 const SIX_HOURS_IN_MS = 6 * 60 * 60 * 1000;
 
-const username = prompt("Please Tell Us Your Name");
+//const username = prompt("Please Tell Us Your Name");
 
 document.getElementById("message-form").addEventListener("submit", sendMessage);
 
