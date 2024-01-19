@@ -76,7 +76,7 @@ button {
 /* Add styles for audio controls */
 .center-container audio {
     /* Your styles for audio controls go here */
-    width: 100%; /* Make the audio player full width within the container */
+    width: 90%; /* Make the audio player full width within the container */
     background-color: #f2f2f2; /* Example background color */
     padding: 10px; /* Example padding */
     border-radius: 5px; /* Example border-radius */
