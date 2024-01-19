@@ -1,4 +1,5 @@
 body {
+    filter: invert(100%);
     background-color: #F9F6EE;
     margin: 0;
     padding: 0;
