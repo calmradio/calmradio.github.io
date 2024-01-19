@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Calm Radio Live</title>
@@ -17,37 +16,29 @@
         }
 
         .center-container {
-            display: inline-block;
-            text-align: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ensure the container takes the full height of the viewport */
+        }
+
+        #widget-bot {
+            width: 300px; /* Set the width of your widget */
+            height: 700px; /* Set the height of your widget */
         }
     </style>
 </head>  
+<body>
 
- 
- 
- <br>
- 
-<widgetbot
-    server="1197253804295454841"
-    channel="1197254074605776896"
-    width="300"
-    height="600"
-></widgetbot>
+<div class="center-container">
+    <widgetbot
+        id="widget-bot"
+        server="1197253804295454841"
+        channel="1197254074605776896"
+    ></widgetbot>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
 
-<br>
-<br>
-
-
-
-
-
-    
-
-
-
-
-
-    
 </body>
 </html>
