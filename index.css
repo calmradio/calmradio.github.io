@@ -73,18 +73,18 @@ button {
     text-align: left;
 }
 
-/* Add styles for audio controls */
 .center-container audio {
     /* Your styles for audio controls go here */
-    width: 80%; /* Make the audio player full width within the container */
+    width: 90%; /* Make the audio player full width within the container */
     background-color: #f2f2f2; /* Example background color */
     padding: 10px; /* Example padding */
-    border-radius: 5px; /* Example border-radius */
+    border-radius: 20px; /* Example border-radius */
     
     /* Set the position to fixed */
     position: fixed;
-    bottom: 0; /* Adjust as needed, this example places the controls at the bottom */
-    left: 0;
+    bottom: 0; /* Keep the controls at the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally using transform */
     z-index: 1000; /* Adjust as needed, make sure it's higher than other elements */
 }
 
