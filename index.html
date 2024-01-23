@@ -9,6 +9,7 @@
         body {
             text-align: center;
             font-family: 'Helvetica', sans-serif;
+            margin: 0;
         }
 
         header, nav, #chat, .center-container {
@@ -19,59 +20,66 @@
             display: inline-block;
             text-align: left;
         }
+
+        #widget-bot {
+            display: none;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 300px; /* Adjust the width as needed */
+            height: 600px; /* Adjust the height as needed */
+        }
     </style>
 
-<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/75e59e486c037fbca7830bd2c/b896c376b465d4c0238d723f6.js");</script>
-
+    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/75e59e486c037fbca7830bd2c/b896c376b465d4c0238d723f6.js");</script>
+    <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
 </head>
 <body>
     <header>
-<p><img alt="" src="https://d2w9rnfcy7mm78.cloudfront.net/24531494/original_1accebd668437d25b30db609ace48981.png?1699132774?bc=0" style="height:203px; width:175px" /></p>    </header>
+        <p><img alt="" src="https://d2w9rnfcy7mm78.cloudfront.net/24531494/original_1accebd668437d25b30db609ace48981.png?1699132774?bc=0" style="height:203px; width:175px" /></p>
+    </header>
 
-	
-<p><a href="https://www.calmradio.live/Archive.html" onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=yes,scrollbars=no,dependent=no'); return false;">Chat</a>&nbsp; &nbsp;<u><a href="https://www.instagram.com/calm_____5/" target="_blank">Instagram</a></u>&nbsp; &nbsp;<a href="http://eepurl.com/iDM27I" target="_blank">Newsletter</a>&nbsp;</p>
-
-	<br>
-
-
-	
-	<div id="donate-button-container">
-<div id="donate-button"></div>
-<script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
-<script>
-PayPal.Donation.Button({
-env:'production',
-hosted_button_id:'Q4AZ7XHKWYERW',
-image: {
-src:'https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif',
-alt:'Donate with PayPal button',
-title:'PayPal - The safer, easier way to pay online!',
-}
-}).render('#donate-button');
-</script>
-</div>
+    <p><a href="#" onclick="toggleWidget()">Chat</a>&nbsp; &nbsp;<u><a href="https://www.instagram.com/calm_____5/" target="_blank">Instagram</a></u>&nbsp; &nbsp;<a href="http://eepurl.com/iDM27I" target="_blank">Newsletter</a>&nbsp;</p>
 
     <br>
-	
-<p style="text-align:center"><span style="background-color:#ffffff">🎸</span><strong><span style="color:#e74c3c"><span style="background-color:#ffffff">NEXT SHOW</span></span><span style="background-color:#ffffff"> </span></strong><span style="background-color:#ffffff">🎵</span></p>
-	
-<table align="center" border="1" cellpadding="1" cellspacing="1" style="width:350px">
-	<tbody>
-		<tr>
-			<td style="text-align:center; width:233px">DJ Rex Advice Hotline</td>
-			<td style="text-align:center; width:103px">TBD</td>
-		</tr>
-		<tr>
-			<s><td style="text-align:center; width:233px">DJ g00mand It's Music Time</td></s>
-			<td style="text-align:center; width:103px">TBD</td>
-		</tr>
-		<tr>
-			<td style="text-align:center; width:233px">Music With Fritz</td>
-			<td style="text-align:center; width:103px">TBD</td>
-		</tr>
-	</tbody>
-</table>
-    
+
+    <div id="donate-button-container">
+        <div id="donate-button"></div>
+        <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+        <script>
+            PayPal.Donation.Button({
+            env:'production',
+            hosted_button_id:'Q4AZ7XHKWYERW',
+            image: {
+            src:'https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif',
+            alt:'Donate with PayPal button',
+            title:'PayPal - The safer, easier way to pay online!',
+            }
+            }).render('#donate-button');
+        </script>
+    </div>
+
+    <br>
+
+    <p style="text-align:center"><span style="background-color:#ffffff">🎸</span><strong><span style="color:#e74c3c"><span style="background-color:#ffffff">NEXT SHOW</span></span><span style="background-color:#ffffff"> </span></strong><span style="background-color:#ffffff">🎵</span></p>
+
+    <table align="center" border="1" cellpadding="1" cellspacing="1" style="width:350px">
+        <tbody>
+            <tr>
+                <td style="text-align:center; width:233px">DJ Rex Advice Hotline</td>
+                <td style="text-align:center; width:103px">TBD</td>
+            </tr>
+            <tr>
+                <s><td style="text-align:center; width:233px">DJ g00mand It's Music Time</td></s>
+                <td style="text-align:center; width:103px">TBD</td>
+            </tr>
+            <tr>
+                <td style="text-align:center; width:233px">Music With Fritz</td>
+                <td style="text-align:center; width:103px">TBD</td>
+            </tr>
+        </tbody>
+    </table>
+
     <br>
 
     <div class="center-container">
@@ -81,28 +89,29 @@ title:'PayPal - The safer, easier way to pay online!',
         </audio>
     </div>
 
-	<!--<script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
-    new Crate({
-        server: '1197253804295454841', // Calm Radio
-        channel: '1197254074605776896' // #main-chat
-    })
-</script>
-	
-	<div id="chat">
-
-      <!-- messages will display here -->
-   	<!-- <ul id="messages"></ul>
-
-      <!-- form to send message -->
-     <!-- <form id="message-form">
-        <input id="message-input" type="text" />
-        <button id="message-btn" type="submit">Send</button>
-      </form>
+    <div id="widget-bot">
+        <widgetbot
+            server="1197253804295454841"
+            channel="1197254074605776896"
+            width="300"
+            height="600"
+        ></widgetbot>
     </div>
 
-    <!-- scripts -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
-    <script src="index.js"></script>
-  </body>
+    <script>
+        // JavaScript function to toggle the widget's visibility and change button text
+        function toggleWidget() {
+            var widget = document.getElementById("widget-bot");
+            var button = document.querySelector("a[href='#']");
+            
+            if (widget.style.display === "none" || window.getComputedStyle(widget).display === "none") {
+                widget.style.display = "block";
+                button.innerText = "Hide Chat";
+            } else {
+                widget.style.display = "none";
+                button.innerText = "Chat";
+            }
+        }
+    </script>
+</body>
 </html>
