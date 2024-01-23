@@ -17,9 +17,11 @@
         }
 
         .center-container {
-            display: inline-block;
-            text-align: left;
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
        #widget-bot {
     display: none;
@@ -144,17 +146,18 @@
     <script>
         // JavaScript function to toggle the widget's visibility and change button text
         function toggleWidget() {
-            var widget = document.getElementById("widget-bot");
-            var button = document.querySelector("a[href='#']");
-            
-            if (widget.style.display === "none" || window.getComputedStyle(widget).display === "none") {
-                widget.style.display = "block";
-                button.innerText = "Hide Chat";
-            } else {
-                widget.style.display = "none";
-                button.innerText = "Chat";
-            }
-        }
+    var widget = document.getElementById("widget-bot");
+    var button = document.querySelector("a[href='#']");
+    var audio = document.querySelector("audio");
+    
+    if (widget.style.display === "none" || window.getComputedStyle(widget).display === "none") {
+        widget.style.display = "block";
+				widget.style.top = audio.offsetTop + audio.offsetHeight + 10 + "px";        button.innerText = "Hide Chat";
+    } else {
+        widget.style.display = "none";
+        button.innerText = "Chat";
+    }
+}
     </script>
 </body>
 </html>
