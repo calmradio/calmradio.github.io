@@ -68,6 +68,18 @@
         <div id="datetime"></div>
     </header>
 
+    <script>
+        function updateDateTime() {
+            var now = new Date();
+            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' };
+            var formattedDateTime = now.toLocaleString('en-US', options).replace("at", "\n"); // Replace "at" with a line break
+            document.getElementById('datetime').textContent = formattedDateTime;
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime(); // Call the function immediately to display the initial date and time
+    </script>
+
     <p><a href="#" onclick="toggleWidget()">Chat</a>&nbsp; &nbsp;<u><a href="https://www.instagram.com/calm_____5/" target="_blank">Instagram</a></u>&nbsp; &nbsp;<a href="http://eepurl.com/iDM27I" target="_blank">Newsletter</a>&nbsp;</p>
 
     <br>
