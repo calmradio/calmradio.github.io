@@ -153,6 +153,9 @@
     if (widget.style.display === "none" || window.getComputedStyle(widget).display === "none") {
         widget.style.display = "block";
 				widget.style.top = audio.offsetTop + audio.offsetHeight + 10 + "px";        button.innerText = "Hide Chat";
+        widget.style.top = audio.offsetTop + audio.offsetHeight + 10 + "px";
+widget.style.marginTop = "10px"; // Add this line to create space between the audio element and the widget
+
     } else {
         widget.style.display = "none";
         button.innerText = "Chat";
