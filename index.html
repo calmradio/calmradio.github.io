@@ -129,11 +129,6 @@
         Your browser does not support the audio element.
     </audio>
     
-    <button onclick="refreshStream()">
-    <img src="https://uxwing.com/wp-content/themes/uxwing/download/arrow-direction/reload-icon.png" alt="Refresh Stream" style="width: 20px; height: 20px;">
-</button>
-
-    
     <script>
         function openWidgetPopup() {
             var widgetWindow = window.open('', 'widgetPopup', 'width=300,height=600');
@@ -152,13 +147,6 @@
 
             return false;
         }
-        
-        function refreshStream() {
-        var audioElement = document.querySelector('audio');
-        audioElement.src = "http://streaming.shoutcast.com/calm-radio?" + new Date().getTime();
-        audioElement.load();
-        audioElement.play();
-    }
     </script>
 
 </body>
