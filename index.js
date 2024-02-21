@@ -21,12 +21,14 @@ async function displaySchedule() {
     let anyShowFound = false;
 
     scheduleData.forEach(item => {
-        if (item.day === today && item.show.trim() !== '') {
-            const showItem = document.createElement('div');
-            showItem.classList.add('show-item');
-            showItem.innerHTML = `<strong>${item.day}</strong>: ${item.show} - ${item.time}`;
-            scheduleContainer.appendChild(showItem);
-            anyShowFound = true;
+        if (item.day === today) {
+            if (item.show.trim() !== '') {
+                const showItem = document.createElement('div');
+                showItem.classList.add('show-item');
+                showItem.innerHTML = `<strong>${item.day}</strong>: ${item.show} - ${item.time}`;
+                scheduleContainer.appendChild(showItem);
+                anyShowFound = true;
+            }
         }
     });
 
