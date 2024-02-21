@@ -19,14 +19,22 @@ async function displaySchedule() {
     scheduleContainer.innerHTML = '';
 
     scheduleData.forEach(item => {
-        if (item.day === today && item.show && item.show.trim() !== '') { // Check if the "show" field is defined and not empty
-            const showItem = document.createElement('div');
-            showItem.classList.add('show-item');
-            showItem.innerHTML = `<strong>${item.day}</strong>: ${item.show} at ${item.time}`;
-            scheduleContainer.appendChild(showItem);
+        if (item.day === today && item.shows.length > 0) { // Check if there are shows scheduled for today
+            const showsList = document.createElement('ul');
+            showsList.classList.add('shows-list');
+
+            item.shows.forEach((show, index) => {
+                const showItem = document.createElement('li');
+                showItem.classList.add('show-item');
+                showItem.innerHTML = `<strong>${show}</strong> - ${item.times[index]}`;
+                showsList.appendChild(showItem);
+            });
+
+            scheduleContainer.appendChild(showsList);
         }
     });
 }
+
 
 // Call the function to display schedule on page load
 window.onload = function() {
