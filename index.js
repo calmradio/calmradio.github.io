@@ -37,7 +37,7 @@ async function displaySchedule() {
 // Function to check if the audio stream is active
 function isAudioStreamActive() {
     const audio = document.querySelector('audio');
-    return !audio.paused || audio.currentTime > 0;
+    return audio && !audio.paused;
 }
 
 // Function to display or hide schedule based on audio stream status
