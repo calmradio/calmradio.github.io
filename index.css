@@ -1,1 +1,12 @@
+/* index.css */
+
+/* Remove list style for unordered lists */
+ul {
+    list-style-type: none;
+}
+
+/* Style for schedule items */
+.show-item {
+    /* Add your custom styles for schedule items here */
+}
 
