@@ -34,28 +34,14 @@ async function displaySchedule() {
     });
 }
 
-// Function to check if the audio stream is active
-function isAudioStreamActive() {
-    const audio = document.querySelector('audio');
-    return audio && !audio.paused;
-}
-
-// Function to display or hide schedule based on audio stream status
+// Function to display schedule regardless of audio stream status
 function updateScheduleDisplay() {
+    displaySchedule(); // Display schedule
     const scheduleContainer = document.getElementById('schedule');
-
-    if (isAudioStreamActive()) {
-        displaySchedule();
-        scheduleContainer.style.display = 'block';
-    } else {
-        scheduleContainer.style.display = 'none';
-    }
+    scheduleContainer.style.display = 'block'; // Show schedule container
 }
 
-// Call the function to update schedule display based on audio stream status
-window.addEventListener('load', function() {
+// Call the function to update schedule display
+window.onload = function() {
     updateScheduleDisplay();
-
-    // Periodically check the audio stream status
-    setInterval(updateScheduleDisplay, 1000);
-});
+};
