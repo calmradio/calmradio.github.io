@@ -25,7 +25,6 @@ async function displaySchedule() {
 
             item.shows.forEach((show, index) => {
                 const showItem = document.createElement('li');
-                showItem.classList.add('show-item');
                 showItem.innerHTML = `<strong>${show}</strong> - ${item.times[index]}`;
                 showsList.appendChild(showItem);
             });
@@ -34,6 +33,7 @@ async function displaySchedule() {
         }
     });
 }
+
 
 
 // Call the function to display schedule on page load
