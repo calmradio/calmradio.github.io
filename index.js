@@ -34,9 +34,25 @@ async function displaySchedule() {
     });
 }
 
+// Function to check if the audio stream is live
+function isAudioStreamLive() {
+    const audio = document.querySelector('audio');
+    return !audio.paused && audio.readyState >= 2;
+}
 
+// Function to display schedule items if the audio stream is live
+function displayScheduleIfLive() {
+    if (isAudioStreamLive()) {
+        displaySchedule();
+    }
+}
 
-// Call the function to display schedule on page load
-window.onload = function() {
-    displaySchedule();
-};
+// Call the function to display schedule items if the audio stream is live
+window.addEventListener('load', function() {
+    displayScheduleIfLive();
+
+    // Listen for changes in the audio stream state
+    const audio = document.querySelector('audio');
+    audio.addEventListener('play', displaySchedule);
+    audio.addEventListener('pause', displaySchedule);
+});
