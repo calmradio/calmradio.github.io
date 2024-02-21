@@ -2,10 +2,7 @@
 
 /* Center the schedule container vertically */
 #schedule-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Set the container height to full viewport height */
+
 }
 
 /* Remove list style for unordered lists */
