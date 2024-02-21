@@ -19,10 +19,10 @@ async function displaySchedule() {
     scheduleContainer.innerHTML = '';
 
     scheduleData.forEach(item => {
-        if (item.day === today && item.show.trim() !== '') { // Check if the "show" field is not empty
+        if (item.day === today && item.show && item.show.trim() !== '') { // Check if the "show" field is defined and not empty
             const showItem = document.createElement('div');
             showItem.classList.add('show-item');
-            showItem.innerHTML = `<strong>${item.day}</strong>: ${item.show} - ${item.time}`;
+            showItem.innerHTML = `<strong>${item.day}</strong>: ${item.show} at ${item.time}`;
             scheduleContainer.appendChild(showItem);
         }
     });
