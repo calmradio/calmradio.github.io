@@ -1,11 +1,10 @@
 /* index.css */
 
-/* Center the schedule container */
+/* Center the schedule container vertically */
 #schedule-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     height: 100vh; /* Set the container height to full viewport height */
 }
 
