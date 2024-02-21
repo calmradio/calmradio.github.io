@@ -19,13 +19,11 @@ async function displaySchedule() {
     scheduleContainer.innerHTML = '';
 
     scheduleData.forEach(item => {
-        if (item.day === today) {
-            for (let i = 0; i < item.shows.length; i++) {
-                const showItem = document.createElement('div');
-                showItem.classList.add('show-item');
-                showItem.innerHTML = `<strong>${item.day}</strong>: ${item.shows[i]} - ${item.times[i]}`;
-                scheduleContainer.appendChild(showItem);
-            }
+        if (item.day === today && item.show.trim() !== '') { // Check if the "show" field is not empty
+            const showItem = document.createElement('div');
+            showItem.classList.add('show-item');
+            showItem.innerHTML = `<strong>${item.day}</strong>: ${item.show} - ${item.time}`;
+            scheduleContainer.appendChild(showItem);
         }
     });
 }
