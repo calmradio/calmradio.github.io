@@ -33,7 +33,7 @@ async function displaySchedule() {
     if (!anyShowFound) {
         const noShowsMessage = document.createElement('div');
         noShowsMessage.classList.add('no-shows-message');
-        noShowsMessage.textContent = 'No shows scheduled';
+        noShowsMessage.textContent = 'No shows scheduled for today';
         scheduleContainer.appendChild(noShowsMessage);
     }
 }
