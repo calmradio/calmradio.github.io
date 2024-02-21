@@ -1,6 +1,6 @@
 [
     { "day": "Monday", "shows": ["Show A", "Show B"], "times": ["10:00 AM", "11:00 AM"] },
-    { "day": "Tuesday", "shows": ["Test"], "times": ["06:00 PM"] },
+    { "day": "Tuesday", "shows": ["test"], "times": ["test"] },
     { "day": "Wednesday", "shows": ["Show D", "Show E"], "times": ["1:00 PM", "2:00 PM"] },
     { "day": "Thursday", "shows": ["Show F"], "times": ["3:00 PM"] },
     { "day": "Friday", "shows": ["Show G"], "times": ["4:00 PM"] },
