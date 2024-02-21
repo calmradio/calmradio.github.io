@@ -1,5 +1,14 @@
 /* index.css */
 
+/* Center the schedule container */
+#schedule-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh; /* Set the container height to full viewport height */
+}
+
 /* Remove list style for unordered lists */
 ul {
     list-style-type: none;
@@ -9,4 +18,3 @@ ul {
 .show-item {
     /* Add your custom styles for schedule items here */
 }
-
