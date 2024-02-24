@@ -1,9 +1,44 @@
 [
-    { "day": "Monday", "shows": ["", ""], "times": ["", ""] },
-    { "day": "Tuesday", "shows": ["", ""], "times": ["", ""] },
-    { "day": "Wednesday", "shows": ["Test", ""], "times": ["10:00AM", ""] },
-    { "day": "Thursday", "shows": [""], "times": [""] },
-    { "day": "Friday", "shows": [""], "times": [""] },
-    { "day": "Saturday", "shows": [""], "times": [""] },
-    { "day": "Sunday", "shows": [""], "times": [""] }
+    { 
+        "day": "Monday", 
+        "shows": ["Morning Show", "Evening Show"], 
+        "times": ["10:00AM", "7:00PM"],
+        "image": "https://example.com/image1.jpg"
+    },
+    { 
+        "day": "Tuesday", 
+        "shows": ["Afternoon Show", "Late Night Show"], 
+        "times": ["2:00PM", "11:00PM"],
+        "image": "https://example.com/image2.jpg"
+    },
+    { 
+        "day": "Wednesday", 
+        "shows": ["Test Show"], 
+        "times": ["1:00PM"],
+        "image": "https://example.com/image3.jpg"
+    },
+    { 
+        "day": "Thursday", 
+        "shows": ["Another Show"], 
+        "times": ["3:00PM"],
+        "image": "https://example.com/image4.jpg"
+    },
+    { 
+        "day": "Friday", 
+        "shows": ["Friday Show"], 
+        "times": ["4:00PM"],
+        "image": "https://example.com/image5.jpg"
+    },
+    { 
+        "day": "Saturday", 
+        "shows": ["Magic Mix by Dylan S"], 
+        "times": ["12:00PM PST"],
+        "image": "https://d2w9rnfcy7mm78.cloudfront.net/26572944/original_490b1654f3f8b16dcbe5616a3b631838.png?1708795845?bc=0"
+    },
+    { 
+        "day": "Sunday", 
+        "shows": ["Sunday Funday"], 
+        "times": ["6:00PM"],
+        "image": "https://example.com/image7.jpg"
+    }
 ]
