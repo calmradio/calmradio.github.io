@@ -35,6 +35,7 @@ async function displaySchedule() {
             if (item.image) {
                 const imageElement = document.createElement('img');
                 imageElement.src = item.image;
+                imageElement.classList.add('schedule-image'); // Add a class to the image element
                 scheduleContainer.appendChild(imageElement);
             }
         }
