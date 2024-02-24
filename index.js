@@ -30,18 +30,18 @@ async function displaySchedule() {
             });
 
             scheduleContainer.appendChild(showsList);
+
+            // Display image if available
+            if (item.image) {
+                const imageElement = document.createElement('img');
+                imageElement.src = item.image;
+                scheduleContainer.appendChild(imageElement);
+            }
         }
     });
 }
 
-// Function to display schedule regardless of audio stream status
-function updateScheduleDisplay() {
-    displaySchedule(); // Display schedule
-    const scheduleContainer = document.getElementById('schedule');
-    scheduleContainer.style.display = 'block'; // Show schedule container
-}
-
-// Call the function to update schedule display
+// Call the function to display schedule on page load
 window.onload = function() {
-    updateScheduleDisplay();
+    displaySchedule();
 };
