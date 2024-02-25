@@ -1,44 +1,44 @@
 [
     { 
         "day": "Monday", 
-        "shows": ["Morning Show", "Evening Show"], 
-        "times": ["10:00AM", "7:00PM"],
-        "image": "https://example.com/image1.jpg"
+        "shows": ["It's Music Time w/ DJ g00man", ""], 
+        "times": ["8:00PM PST", ""],
+        "image": ""
     },
     { 
         "day": "Tuesday", 
-        "shows": ["Afternoon Show", "Late Night Show"], 
-        "times": ["2:00PM", "11:00PM"],
-        "image": "https://example.com/image2.jpg"
+        "shows": ["", ""], 
+        "times": ["", ""],
+        "image": ""
     },
     { 
         "day": "Wednesday", 
-        "shows": ["Test Show"], 
-        "times": ["1:00PM"],
-        "image": "https://example.com/image3.jpg"
+        "shows": [""], 
+        "times": [""],
+        "image": ""
     },
     { 
         "day": "Thursday", 
-        "shows": ["Another Show"], 
-        "times": ["3:00PM"],
-        "image": "https://example.com/image4.jpg"
+        "shows": [""], 
+        "times": [""],
+        "image": ""
     },
     { 
         "day": "Friday", 
-        "shows": ["Friday Show"], 
-        "times": ["4:00PM"],
-        "image": "https://example.com/image5.jpg"
+        "shows": [""], 
+        "times": [""],
+        "image": ""
     },
     { 
         "day": "Saturday", 
-        "shows": ["Magic Mix by Ovus"], 
-        "times": ["12:00PM PST"],
+        "shows": [""], 
+        "times": [""],
         "image": ""
     },
     { 
         "day": "Sunday", 
-        "shows": ["Sunday Funday"], 
-        "times": ["6:00PM"],
-        "image": "https://example.com/image7.jpg"
+        "shows": [""], 
+        "times": [""],
+        "image": ""
     }
 ]
