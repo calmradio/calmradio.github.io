@@ -1,14 +1,14 @@
 [
     { 
         "day": "Monday", 
-        "shows": ["Downtown Restaurant Radio Hour", "It's Music Time w/ DJ g00man"], 
-        "times": ["7:00PM PST", "8:00PM PST"],
+        "shows": ["", ""], 
+        "times": ["", ""],
         "image": ""
     },
     { 
         "day": "Tuesday", 
-        "shows": ["", ""], 
-        "times": ["", ""],
+        "shows": ["It's Music Time w/ DJ g00man", ""], 
+        "times": ["8:00PM PST", ""],
         "image": ""
     },
     { 
