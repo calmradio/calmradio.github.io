@@ -37,8 +37,8 @@
     },
     { 
         "day": "Sunday", 
-        "shows": [""], 
-        "times": [""],
+        "shows": ["Smile Ideation"], 
+        "times": ["7:00PM PST"],
         "image": ""
     }
 ]
