@@ -1,14 +1,14 @@
 [
     { 
         "day": "Monday", 
-        "shows": ["", ""], 
-        "times": ["", ""],
+        "shows": ["It's Music Time w/ DJ g00man", ""], 
+        "times": ["8:00PM PST", ""],
         "image": ""
     },
     { 
         "day": "Tuesday", 
-        "shows": ["It's Music Time w/ DJ g00man", ""], 
-        "times": ["8:00PM PST", ""],
+        "shows": ["", ""], 
+        "times": ["", ""],
         "image": ""
     },
     { 
