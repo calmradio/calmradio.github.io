@@ -1,7 +1,7 @@
 [
     { 
         "day": "Monday", 
-        "shows": ["It's Music Time w/ DJ g00man", ""], 
+        "shows": ["", ""], 
         "times": ["8:00PM PST", ""],
         "image": ""
     },
@@ -37,8 +37,8 @@
     },
     { 
         "day": "Sunday", 
-        "shows": ["Smile Ideation"], 
-        "times": ["7:00PM PST"],
+        "shows": ["It's Music Time w/ DJ g00man"], 
+        "times": ["11:00AM PST"],
         "image": ""
     }
 ]
